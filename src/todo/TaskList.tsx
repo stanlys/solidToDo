@@ -1,10 +1,9 @@
 import { For } from "solid-js";
-import Task, { ITask } from "./Task";
+import Task from "./Task";
 import styles from "./TaskList.module.scss";
+import { IToDoList } from "../store";
 
-export interface IToDoList {
-    tasks: Array<ITask>;
-}
+
 
 const TaskList = (tasks: IToDoList) => {
     return (

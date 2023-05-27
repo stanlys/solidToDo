@@ -1,9 +1,5 @@
 import { Checkbox, Divider } from "@suid/material";
-
-export interface ITask {
-    title: string;
-    isComplete: boolean;
-}
+import { ITask } from "../store";
 
 const Task = (task: ITask) => {
     return (
