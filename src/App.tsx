@@ -11,16 +11,7 @@ export default function App() {
 
     const [toDos, setToDos] = createSignal<IToDoList>({ tasks: [] });
 
-    // const tasks: IToDoList = {
-    //     tasks: [
-    //         { title: "1", isComplete: false },
-    //         { title: "2", isComplete: false },
-    //     ],
-    // };
-
     const addNewTask = (taskName: string) => {
-        // tasks.tasks.push({ isComplete: false, title: taskName });
-        // console.log(tasks);
         const tasks = toDos();
         setToDos((_tasks) => ({ tasks: [..._tasks.tasks, { title: taskName, isComplete: false }] }));
     };

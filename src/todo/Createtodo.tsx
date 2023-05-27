@@ -10,6 +10,10 @@ export interface ICreateToDo {
 export default function CreateToDo(props: ICreateToDo): JSX.Element {
     const [taskName, setTaskName] = createSignal("");
 
+    const addNewTask = (e: InputEvent) => {
+        setTaskName((e.currentTarget as HTMLInputElement).value);
+    };
+
     return (
         <span class={styles.inputArea}>
             <TextField
@@ -19,7 +23,13 @@ export default function CreateToDo(props: ICreateToDo): JSX.Element {
                 value={taskName()}
                 onChange={(e) => setTaskName(e.currentTarget.value)}
             />
-            <Button color="primary" onClick={() => props.addNewTask(taskName())}>
+            <Button
+                color="primary"
+                onClick={() => {
+                    props.addNewTask(taskName());
+                    setTaskName("");
+                }}
+            >
                 Add Task
             </Button>
         </span>

@@ -9,7 +9,13 @@ const Task = (task: ITask) => {
     return (
         <>
             <li>
-                <Checkbox checked={task.isComplete}></Checkbox> {task.title}
+                <Checkbox
+                    checked={task.isComplete}
+                    onChange={(e) => {
+                        task.isComplete = !task.isComplete;
+                    }}
+                ></Checkbox>
+                {task.title}
             </li>
             <Divider />
         </>
