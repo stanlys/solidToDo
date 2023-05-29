@@ -1,4 +1,12 @@
 .listToDo {
     text-decoration: none;
     list-style: none;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    height: 100%;
+    width: 20vw;
+    overflow: scroll;
+    scrollbar-color: lightblue;
+    // scrollbar-color: lightblue;
 }

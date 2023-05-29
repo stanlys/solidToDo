@@ -29,8 +29,7 @@ export default function CreateToDo(props: ICreateToDo): JSX.Element {
             <Button
                 color="primary"
                 onClick={() => {
-                    props.addNewTask(taskName());
-
+                    // props.addNewTask(taskName());
                     addNewTasktoStore(taskName());
                     setTaskName("");
                 }}
