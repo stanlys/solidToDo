@@ -12,4 +12,10 @@
     justify-content: center;
     align-items: center;
     gap: 2rem;
+
+    .add_btn {
+        position: absolute;
+        right: 5px;
+        bottom: 5px;
+    }
 }

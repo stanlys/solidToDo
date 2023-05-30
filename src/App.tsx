@@ -1,6 +1,7 @@
 import { Fab } from "@suid/material";
 import { Box } from "@suid/material";
 import AddIcon from "@suid/icons-material/Add";
+import HideSource from "@suid/icons-material/HideSource";
 import styles from "./App.module.scss";
 import CreateToDo from "./todo/Createtodo";
 import { Show, createSignal } from "solid-js";
@@ -21,22 +22,23 @@ export default function App() {
     // console.log(tasks.length);
 
     return (
-        <Box>
-            <Box class={styles.wrapper}>
-                <Fab
-                    color="primary"
-                    aria-label="add"
-                    onClick={() => {
-                        setShowAddBtn(!showAddBtn());
-                    }}
-                >
-                    <AddIcon />
-                </Fab>
+        <Box class={styles.wrapper}>
+            <Box>
                 <Show when={showAddBtn()} fallback={<></>}>
                     <CreateToDo addNewTask={addNewTask} />
                     <TaskList tasks={tasks}></TaskList>
                 </Show>
             </Box>
+            <Fab
+                color="primary"
+                class={styles.add_btn}
+                aria-label="add"
+                onClick={() => {
+                    setShowAddBtn(!showAddBtn());
+                }}
+            >
+                {!showAddBtn() ? <AddIcon /> : <HideSource />}
+            </Fab>
         </Box>
     );
 }
