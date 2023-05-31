@@ -5,6 +5,16 @@
         "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+*::-webkit-scrollbar-track {
+    background: rgb(163, 130, 71);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: blue;
+    border-radius: 5px;
+    border: 3px solid orange;
+}
+
 .wrapper {
     background-color: lightblue;
     height: 100vh;
@@ -14,4 +24,10 @@
     justify-content: center;
     align-items: center;
     gap: 2rem;
+
+    .add_btn {
+        position: absolute;
+        right: 5px;
+        bottom: 5px;
+    }
 }
