@@ -15,6 +15,7 @@ export interface ITasks {
 export interface IToDoList extends ITasks {
     addNewTask: (title: string) => void;
     completeTask: (id: string) => void;
+    deleteTask: (id: string) => void;
 }
 
 export const useStoreTasks = create(
@@ -25,6 +26,13 @@ export const useStoreTasks = create(
                 set((state) => {
                     const newTask = { title, isComplete: false, id: nanoid() };
                     return { ...state, tasks: [...state.tasks, newTask] };
+                }),
+            deleteTask: (id: string) =>
+                set((state) => {
+                    return {
+                        ...state,
+                        tasks: state.tasks.filter((task) => task.id != id),
+                    };
                 }),
             completeTask: (id) =>
                 set((state) => {
@@ -37,13 +45,6 @@ export const useStoreTasks = create(
                                 return _task;
                             }
                         }),
-                    };
-                }),
-            deleteTask: (id: string) =>
-                set((state) => {
-                    return {
-                        ...state,
-                        tasks: state.tasks.filter((task) => task.id != id),
                     };
                 }),
         }),

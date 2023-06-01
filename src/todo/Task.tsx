@@ -6,7 +6,7 @@ import styles from "./Task.module.scss";
 
 const Task = (task: ITask) => {
     const completeTask = useStoreTasks((state) => state.completeTask);
-    const deleteTask = useStoreTasks((state) => state.completeTask);
+    const deleteTask = useStoreTasks((state) => state.deleteTask);
 
     return (
         <>
@@ -18,7 +18,7 @@ const Task = (task: ITask) => {
                     }}
                 ></Checkbox>
                 {task.title}
-                <IconButton color="warning" component="span">
+                <IconButton color="warning" component="span" onClick={() => deleteTask(task.id)}>
                     <DeleteOutline />
                 </IconButton>
             </li>

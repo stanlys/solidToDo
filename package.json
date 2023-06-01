@@ -11,6 +11,7 @@
     "@suid/material": "*",
     "nanoid": "^4.0.2",
     "solid-js": "*",
+    "solid-toast": "^0.5.0",
     "solid-zustand": "^1.5.0",
     "zustand": "^4.3.8"
   },

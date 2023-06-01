@@ -3,6 +3,7 @@ import { JSX } from "solid-js/jsx-runtime";
 import styles from "./Createtodo.module.scss";
 import { createSignal } from "solid-js";
 import { useStoreTasks } from "../store";
+import toast, { Toaster } from "solid-toast";
 
 export interface ICreateToDo {
     addNewTask: (s: string) => void;
@@ -16,6 +17,8 @@ export default function CreateToDo(props: ICreateToDo): JSX.Element {
     };
 
     const addNewTasktoStore = useStoreTasks((state) => state.addNewTask);
+
+    const notify = () => toast.success("Here is your toast.", { duration: 5000, position: "bottom-left" });
 
     return (
         <span class={styles.inputArea}>
@@ -32,10 +35,12 @@ export default function CreateToDo(props: ICreateToDo): JSX.Element {
                     // props.addNewTask(taskName());
                     addNewTasktoStore(taskName());
                     setTaskName("");
+                    notify();
                 }}
             >
                 Add Task
             </Button>
+            <Toaster />
         </span>
     );
 }

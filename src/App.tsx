@@ -1,7 +1,8 @@
-import { Fab, Modal, Typography } from "@suid/material";
+import { Fab, Modal } from "@suid/material";
 import { Box } from "@suid/material";
-import AddIcon from "@suid/icons-material/Add";
+import Shower from "@suid/icons-material/Visibility";
 import HideSource from "@suid/icons-material/HideSource";
+import AddIcon from "@suid/icons-material/Add";
 import styles from "./App.module.scss";
 import CreateToDo from "./todo/Createtodo";
 import { Show, createSignal } from "solid-js";
@@ -10,8 +11,10 @@ import { ITasks, useStoreTasks } from "./store";
 import { nanoid } from "nanoid";
 import useTheme from "@suid/material/styles/useTheme";
 
+
 export default function App() {
     const [showAddBtn, setShowAddBtn] = createSignal(false);
+    const [showTasksBtn, setShowTasksBtn] = createSignal(false);
 
     const handleOpen = () => setShowAddBtn(true);
     const handleClose = () => setShowAddBtn(false);
@@ -26,19 +29,28 @@ export default function App() {
     const { tasks, addNewTask } = useStoreTasks((state) => state);
 
     const theme = useTheme();
-    // console.log(tasks.length);
 
     return (
         <Box class={styles.wrapper}>
             <Box>
-                <Show when={showAddBtn()} fallback={<></>}>
-                    <CreateToDo addNewTask={addNewTask} />
+                <Show when={showTasksBtn()} fallback={<></>}>
                     <TaskList tasks={tasks}></TaskList>
                 </Show>
             </Box>
             <Fab
                 color="primary"
                 class={styles.add_btn}
+                aria-label="add"
+                onClick={() => {
+                    setShowTasksBtn(!showTasksBtn());
+                }}
+            >
+                {!showTasksBtn() ? <Shower /> : <HideSource />}
+            </Fab>
+
+            <Fab
+                color="primary"
+                class={styles.add_btnTop}
                 aria-label="add"
                 onClick={() => {
                     setShowAddBtn(!showAddBtn());
@@ -66,12 +78,7 @@ export default function App() {
                         p: 4,
                     }}
                 >
-                    <Typography id="modal-modal-title" variant="h6" component="h2">
-                        Text in a modal
-                    </Typography>
-                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                        Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                    </Typography>
+                    <CreateToDo addNewTask={addNewTask} />
                 </Box>
             </Modal>
         </Box>
