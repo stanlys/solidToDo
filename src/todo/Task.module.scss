@@ -1,8 +1,12 @@
 .was {
     color: red;
     text-decoration: line-through;
+    display: flex;
+    justify-content: space-between;
 }
 
 .will {
     color: #1a76d2;
+    display: flex;
+    justify-content: space-between;
 }

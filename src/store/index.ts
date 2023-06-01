@@ -28,9 +28,6 @@ export const useStoreTasks = create(
                 }),
             completeTask: (id) =>
                 set((state) => {
-                    // const task = state.tasks.find((_task) => _task.id === id);
-                    // task.isComplete = !task.isComplete;
-
                     return {
                         ...state,
                         tasks: state.tasks.map((_task) => {
@@ -42,7 +39,15 @@ export const useStoreTasks = create(
                         }),
                     };
                 }),
+            deleteTask: (id: string) =>
+                set((state) => {
+                    return {
+                        ...state,
+                        tasks: state.tasks.filter((task) => task.id != id),
+                    };
+                }),
         }),
+
         { name: "ToDo" }
     )
 );
