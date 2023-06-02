@@ -18,7 +18,7 @@ export default function CreateToDo(props: ICreateToDo): JSX.Element {
 
     const addNewTasktoStore = useStoreTasks((state) => state.addNewTask);
 
-    const notify = () => toast.success("Here is your toast.", { duration: 5000, position: "bottom-left" });
+    const notify = () => toast.success("Task was created.", { duration: 5000, position: "bottom-left" });
 
     return (
         <span class={styles.inputArea}>
@@ -40,7 +40,6 @@ export default function CreateToDo(props: ICreateToDo): JSX.Element {
             >
                 Add Task
             </Button>
-            <Toaster />
         </span>
     );
 }

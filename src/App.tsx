@@ -10,7 +10,7 @@ import TaskList from "./todo/TaskList";
 import { ITasks, useStoreTasks } from "./store";
 import { nanoid } from "nanoid";
 import useTheme from "@suid/material/styles/useTheme";
-
+import { Toaster } from "solid-toast";
 
 export default function App() {
     const [showAddBtn, setShowAddBtn] = createSignal(false);
@@ -18,13 +18,6 @@ export default function App() {
 
     const handleOpen = () => setShowAddBtn(true);
     const handleClose = () => setShowAddBtn(false);
-
-    const [toDos, setToDos] = createSignal<ITasks>({ tasks: [] });
-
-    const addNewTaskSignal = (taskName: string) => {
-        const tasks = toDos();
-        setToDos((_tasks) => ({ tasks: [..._tasks.tasks, { title: taskName, isComplete: false, id: nanoid() }] }));
-    };
 
     const { tasks, addNewTask } = useStoreTasks((state) => state);
 
@@ -34,7 +27,7 @@ export default function App() {
         <Box class={styles.wrapper}>
             <Box>
                 <Show when={showTasksBtn()} fallback={<></>}>
-                    <TaskList tasks={tasks}></TaskList>
+                    <TaskList tasks={tasks} className="fewfew"></TaskList>
                 </Show>
             </Box>
             <Fab
@@ -81,6 +74,7 @@ export default function App() {
                     <CreateToDo addNewTask={addNewTask} />
                 </Box>
             </Modal>
+            <Toaster />
         </Box>
     );
 }

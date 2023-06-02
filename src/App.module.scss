@@ -37,3 +37,15 @@
         top: 5px;
     }
 }
+
+.listToDo {
+    text-decoration: none;
+    list-style: none;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    height: 99vh;
+    width: 20vw;
+    overflow: auto;
+    scrollbar-color: lightblue;
+}
