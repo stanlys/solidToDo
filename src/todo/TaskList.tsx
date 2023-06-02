@@ -1,12 +1,20 @@
-import { For } from "solid-js";
+import { Component, For } from "solid-js";
 import Task from "./Task";
 import styles from "./TaskList.module.scss";
-import { ITasks } from "../store";
+import { ITask, ITasks } from "../store";
 
-const TaskList = (tasks: ITasks, className: string) => {
+export interface ITasksListProps {
+    tasks: ITask[];
+    className: string;
+}
+
+const TaskList: Component<ITasksListProps> = (props) => {
+    const { className, tasks } = props;
+    console.log(tasks);
+
     return (
         <ul class={className}>
-            <For each={tasks.tasks}>{(task, index) => <Task {...task}></Task>}</For>
+            <For each={tasks}>{(task, index) => <Task {...task}></Task>}</For>
         </ul>
     );
 };

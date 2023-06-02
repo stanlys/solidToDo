@@ -26,8 +26,8 @@ export default function App() {
     return (
         <Box class={styles.wrapper}>
             <Box>
-                <Show when={showTasksBtn()} fallback={<></>}>
-                    <TaskList tasks={tasks} className="fewfew"></TaskList>
+                <Show when={showTasksBtn()} fallback={<span> Press view ord add btn....</span>}>
+                    <TaskList tasks={tasks} className={styles.listToDo} />
                 </Show>
             </Box>
             <Fab
