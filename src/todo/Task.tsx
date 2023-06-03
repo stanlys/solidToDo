@@ -19,7 +19,12 @@ const Task: Component<ITask> = (task) => {
                     }}
                 ></Checkbox>
                 {task.title}
-                <IconButton color="warning" component="span" onClick={() => deleteTask(task.id)}>
+                <IconButton
+                    color="warning"
+                    component="span"
+                    onClick={() => deleteTask(task.id)}
+                    class={styles.btnDeleteTask}
+                >
                     <DeleteOutline />
                 </IconButton>
             </li>

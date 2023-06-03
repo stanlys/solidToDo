@@ -12,3 +12,9 @@
     justify-content: space-between;
     align-items: center;
 }
+
+.btnDeleteTask {
+    &:hover {
+        transform: scale(1.1);
+    }
+}

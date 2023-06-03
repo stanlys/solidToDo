@@ -1,0 +1,14 @@
+@use "./../common.modules" as colors;
+
+.footer {
+    position: sticky;
+    bottom: 0px;
+    background: colors.$backgroundColor;
+    min-height: 3rem;
+    width: 98vw;
+    display: flex;
+    flex-direction: column;
+    // ustify-content: center;j
+    // align-items: center;
+    padding: 0.2rem;
+}

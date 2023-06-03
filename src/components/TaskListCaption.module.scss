@@ -1,0 +1,11 @@
+@use "./../common.modules" as colors;
+
+.caption {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+    background: colors.$primaryColor;
+    color: white;
+    padding: 1rem;
+    border-radius: 0.2rem;
+}
