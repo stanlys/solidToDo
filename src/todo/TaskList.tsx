@@ -12,7 +12,6 @@ export interface ITasksListProps {
 
 const TaskList: Component<ITasksListProps> = (props) => {
     const { className, tasks, taskListCaption } = props;
-    console.log(tasks);
 
     return (
         <>
