@@ -22,7 +22,7 @@ export default function App() {
     console.log(showAddBtn());
 
     const handleOpen = () => setShowAddBtn(true);
-    const handleClose = () => setShowAddBtn(false);
+    const handleClose = () => setShowModal(false);
 
     const { tasks, addNewTask } = useStoreTasks((state) => state);
 
@@ -67,7 +67,7 @@ export default function App() {
             <Footer />
             <Dynamic component={AddModal} isOpen={showModal()} setShowAddBtn={setShowAddBtn}></Dynamic>
             <Show when={showModal()} fallback={<span> Press view ord add btn....</span>}>
-                <AddModal isOpen={showModal()} setShowAddBtn={setShowAddBtn} />
+                <AddModal isOpen={showModal()} setShowAddBtn={handleClose} />
             </Show>
         </Box>
     );

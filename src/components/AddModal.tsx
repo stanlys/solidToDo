@@ -1,7 +1,8 @@
-import { Modal, Box, Button } from "@suid/material";
+import { Modal, Box, Button, Toolbar, AppBar } from "@suid/material";
 import CreateToDo from "../todo/Createtodo";
 import { useStoreTasks } from "../store";
 import { Component } from "solid-js";
+import styles from "./AddModal.module.scss";
 
 interface AddModalProps {
     isOpen: boolean;
@@ -11,14 +12,10 @@ interface AddModalProps {
 const AddModal: Component<AddModalProps> = (props) => {
     const { setShowAddBtn, isOpen } = props;
 
-    console.log(isOpen);
-
-    const handleClose = () => setShowAddBtn(false);
-
     const { addNewTask } = useStoreTasks((state) => state);
 
     return (
-        <Modal open={isOpen} onClose={handleClose}>
+        <Modal open={isOpen} onClose={() => setShowAddBtn(false)}>
             <Box
                 sx={{
                     position: "absolute",
@@ -30,11 +27,17 @@ const AddModal: Component<AddModalProps> = (props) => {
                     border: "1px solid #blue",
                     borderRadius: "5px",
                     boxShadow: "24px",
-                    p: 4,
                 }}
             >
-                <CreateToDo addNewTask={addNewTask} />
-                <Button onClick={handleClose}>X</Button>
+                <Box class={styles.modalHeader}>
+                    <span>Caption</span>
+                    <Button onClick={() => setShowAddBtn(false)} class={styles.closeBtn}>
+                        X
+                    </Button>
+                </Box>
+                <Box sx={{ p: 3 }}>
+                    <CreateToDo addNewTask={addNewTask} />
+                </Box>
             </Box>
         </Modal>
     );
