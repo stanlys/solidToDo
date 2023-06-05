@@ -66,7 +66,7 @@ export default function App() {
             </Box>
             <Footer />
             <Dynamic component={AddModal} isOpen={showModal()} setShowAddBtn={setShowAddBtn}></Dynamic>
-            <Show when={showModal()} fallback={<span> Press view ord add btn....</span>}>
+            <Show when={showModal()} fallback={<> </>}>
                 <AddModal isOpen={showModal()} setShowAddBtn={handleClose} />
             </Show>
         </Box>

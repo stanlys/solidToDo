@@ -1,8 +1,9 @@
-import { Modal, Box, Button, Toolbar, AppBar } from "@suid/material";
+import { Modal, Box, Button, Toolbar, AppBar, Switch } from "@suid/material";
 import CreateToDo from "../todo/Createtodo";
 import { useStoreTasks } from "../store";
-import { Component } from "solid-js";
+import { Component, Show, createSignal } from "solid-js";
 import styles from "./AddModal.module.scss";
+import Additional from "./Additional";
 
 interface AddModalProps {
     isOpen: boolean;
@@ -13,6 +14,8 @@ const AddModal: Component<AddModalProps> = (props) => {
     const { setShowAddBtn, isOpen } = props;
 
     const { addNewTask } = useStoreTasks((state) => state);
+
+    const [isShowAdd, setIsShowAdd] = createSignal(false);
 
     return (
         <Modal open={isOpen} onClose={() => setShowAddBtn(false)}>
@@ -37,6 +40,14 @@ const AddModal: Component<AddModalProps> = (props) => {
                 </Box>
                 <Box sx={{ p: 3 }}>
                     <CreateToDo addNewTask={addNewTask} />
+                    <span>
+                        Use random setting: No
+                        <Switch onChange={() => setIsShowAdd(!isShowAdd())}></Switch>
+                        Yes
+                    </span>
+                    <Show when={isShowAdd()} fallback={<div>Additional setting</div>}>
+                        <Additional />
+                    </Show>
                 </Box>
             </Box>
         </Modal>

@@ -9,7 +9,7 @@ const MainToolbar = () => {
                     <MenuIcon />
                 </IconButton>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                    News
+                    To Do
                 </Typography>
                 <Button color="inherit">Login</Button>
             </Toolbar>
