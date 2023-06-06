@@ -1,4 +1,4 @@
-import { Modal, Box, Button, Toolbar, AppBar, Switch } from "@suid/material";
+import { Modal, Box, Button, Switch } from "@suid/material";
 import CreateToDo from "../todo/Createtodo";
 import { useStoreTasks } from "../store";
 import { Component, Show, createSignal } from "solid-js";

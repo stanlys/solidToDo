@@ -33,9 +33,6 @@ export default function App() {
             <MainToolbar />
             <Box class={styles.wrapper}>
                 <Box>
-                    {/* <Show when={showTasksBtn()} fallback={<span> Press view ord add btn....</span>}>
-                        <TaskList tasks={tasks} className={styles.listToDo} />
-                    </Show> */}
                     <TaskList tasks={tasks} className={styles.listToDoLeft} taskListCaption="Work" />
                     <TaskList tasks={tasks} className={styles.listToDoCenter} taskListCaption="ToDo..." />
                     <TaskList tasks={tasks} className={styles.listToDoRight} taskListCaption="Done" />

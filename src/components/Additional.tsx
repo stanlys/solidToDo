@@ -1,4 +1,4 @@
-import { Box, Paper } from "@suid/material";
+import { Box, Paper, TextField } from "@suid/material";
 import { Switch } from "@suid/material";
 
 const Additional = () => {
@@ -7,7 +7,10 @@ const Additional = () => {
             <span>
                 Default setting <Switch></Switch> Custom setting
             </span>
-            <Paper variant="outlined"></Paper>
+            <Paper variant="outlined">
+                <label for="chooseColor"> Choose color</label>
+                <input type="color" id="chooseColor" />
+            </Paper>
         </Box>
     );
 };
