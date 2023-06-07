@@ -37,16 +37,6 @@ export default function App() {
                     <TaskList tasks={tasks} className={styles.listToDoCenter} taskListCaption="ToDo..." />
                     <TaskList tasks={tasks} className={styles.listToDoRight} taskListCaption="Done" />
                 </Box>
-                {/* <Fab
-                    color="primary"
-
-                    aria-label="add"
-                    onClick={() => {
-                        setShowTasksBtn(!showTasksBtn());
-                    }}
-                >
-                    {!showTasksBtn() ? <Shower /> : <HideSource />}
-                </Fab> */}
 
                 <Fab
                     color="primary"
